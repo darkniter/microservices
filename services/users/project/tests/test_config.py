@@ -1,6 +1,6 @@
 # services/users/project/tests/test_config.py
 
-
+from project import create_app
 import os
 import unittest
 
@@ -8,7 +8,7 @@ from flask import current_app
 from flask_testing import TestCase
 
 from project import app
-from project import create_app
+
 
 app = create_app()
 
