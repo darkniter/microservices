@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_restful import Resource, Api
-
+from sqlalchemy import exc
 from project import db
 from project.api.models import User
 

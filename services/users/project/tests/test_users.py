@@ -3,7 +3,7 @@
 
 import json
 import unittest
-from sqlalchemy import exc
+
 from project.tests.base import BaseTestCase
 
 
