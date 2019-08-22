@@ -38,4 +38,4 @@ class UsersPing(Resource):
     }
 
 
-api.add_resource(UsersPing, '/')
+api.add_resource(UsersPing, '/users/ping')
