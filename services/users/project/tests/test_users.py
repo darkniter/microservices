@@ -9,10 +9,10 @@ from project.tests.base import BaseTestCase
 
 
 def add_user(username, email):
-        user = User(username=username, email=email)
-        db.session.add(user)
-        db.session.commit()
-        return user
+    user = User(username=username, email=email)
+    db.session.add(user)
+    db.session.commit()
+    return user
 
 
 class TestUserService(BaseTestCase):
@@ -133,11 +133,11 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 200)
             self.assertEqual(len(data['data']['users']), 2)
             self.assertIn('michael', data['data']['users'][0]['username'])
-            self.assertIn('michael@mherman.org',
-                          data['data']['users'][0]['email'])
+            self.assertIn(
+                'michael@mherman.org', data['data']['users'][0]['email'])
             self.assertIn('fletcher', data['data']['users'][1]['username'])
-            self.assertIn('fletcher@notreal.com',
-                          data['data']['users'][1]['email'])
+            self.assertIn(
+                'fletcher@notreal.com', data['data']['users'][1]['email'])
             self.assertIn('success', data['status'])
 
 if __name__ == '__main__':
