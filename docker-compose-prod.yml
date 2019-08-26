@@ -7,7 +7,7 @@ services:
       context: ./services/users
       dockerfile: Dockerfile-prod
     ports:
-      5001:5000
+     - 5001:5000
     environment:
       - FLASK_ENV=production
       - APP_SETTINGS=project.config.ProductionConfig
