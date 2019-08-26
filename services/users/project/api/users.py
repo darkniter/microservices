@@ -84,7 +84,12 @@ class Users(Resource):
 api.add_resource(Users, '/users/<user_id>')
 
 
-@users_blueprint.route('/', methods=['GET'])
+@users_blueprint.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        db.session.add(User(username=username, email=email))
+        db.session.commit()
     users = User.query.all()
     return render_template('index.html', users=users)
