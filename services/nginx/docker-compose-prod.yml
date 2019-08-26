@@ -1,9 +1,0 @@
-nginx:
-  build:
-    context: ./services/nginx
-    dockerfile: Dockerfile-prod
-  restart: always
-  ports:
-    - 80:80
-  depends_on:
-    - users
