@@ -1,27 +1,20 @@
-import React, { Component } from 'react';  // new
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-// new
-class App extends Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return (
-      <section className="section">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-one-third">
-              <br/>
-              <h1 className="title is-1">All Users</h1>
-              <hr/><br/>
-            </div>
+const App = () => {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="columns">
+          <div className="column is-one-third">
+            <br/>
+            <h1 className="title is-1 is-1">All Users</h1>
+            <hr/><br/>
           </div>
         </div>
-      </section>
-    )
-  }
+      </div>
+    </section>
+  )
 };
 
 ReactDOM.render(
