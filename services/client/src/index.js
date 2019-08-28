@@ -28,7 +28,7 @@ class App extends Component {
 
 
   render() {
-    return (
+  return (
       <section className="section">
         <div className="container">
           <div className="columns">
@@ -36,6 +36,7 @@ class App extends Component {
               <br/>
               <h1 className="title is-1">All Users</h1>
               <hr/><br/>
+              <UsersList users={this.state.users}/>
             </div>
           </div>
         </div>
