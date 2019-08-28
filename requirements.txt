@@ -5,4 +5,4 @@ Flask-SQLAlchemy == 2.3.2
 psycopg2 == 2.7.7
 Flask-Testing == 0.7.1
 gunicorn==19.9.0
-flask-debugtoolbar==0.10.1
+
