@@ -5,18 +5,28 @@ import axios from 'axios';
 // new
 class App extends Component {
   // new
+
   constructor() {
     super();
+    // new
+    this.state = {
+      users: []
+    };
   };
   // new
+
   componentDidMount() {
     this.getUsers();
   };
+
+
   getUsers() {
-    axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
-    .then((res) => { console.log(res.data.data); })
-    .catch((err) => { console.log(err); });
-  }
+  axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)  // new
+  .then((res) => { this.setState({ users: res.data.data.users }); })
+  .catch((err) => { console.log(err); });
+  };
+
+
   render() {
     return (
       <section className="section">
@@ -33,6 +43,7 @@ class App extends Component {
     )
   }
 };
+
 
 ReactDOM.render(
   <App />,
