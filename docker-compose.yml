@@ -6,8 +6,6 @@ services:
     build:
       context: ./services/users
       dockerfile: Dockerfile
-    volumes:
-      - './services/users:/usr/src/app'
     expose:
       - 5000
     environment:
