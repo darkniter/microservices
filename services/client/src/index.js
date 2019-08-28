@@ -15,12 +15,20 @@ class App extends Component {
       username: '', // new
       email: '',    // new
     };
-    this.addUser = this.addUser.bind(this);  // new
+    this.addUser = this.addUser.bind(this);
+    this.handleChange = this.handleChange.bind(this);  // new
   };
   // new
 
   componentDidMount() {
     this.getUsers();
+  };
+
+
+  handleChange(event) {
+    const obj = {};
+    obj[event.target.name] = event.target.value;
+    this.setState(obj);
   };
 
 
@@ -44,6 +52,7 @@ class App extends Component {
                 username={this.state.username}
                 email={this.state.email}
                 addUser={this.addUser}
+                handleChange={this.handleChange}  // new
               />  {/* new */}
               <br/><br/>  {/* new */}
               <UsersList users={this.state.users}/>
@@ -56,9 +65,16 @@ class App extends Component {
 
   addUser(event) {
     event.preventDefault();
-    console.log('sanity check!');
+    // new
+    const data = {
+      username: this.state.username,
+      email: this.state.email
+    };
+    // new
+    axios.post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
+    .then((res) => { console.log(res); })
+    .catch((err) => { console.log(err); });
   };
-
 };
 
 
