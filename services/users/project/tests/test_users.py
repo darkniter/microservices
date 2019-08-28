@@ -176,5 +176,6 @@ class TestUserService(BaseTestCase):
             self.assertNotIn(b'<p>No users!</p>', response.data)
             self.assertIn(b'michael', response.data)
 
+
 if __name__ == '__main__':
     unittest.main()
