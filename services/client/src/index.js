@@ -11,7 +11,7 @@ class App extends Component {
 
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
-    .then((res) => { console.log(res); })
+    .then((res) => { console.log(res.data.data); })  // new
     .catch((err) => { console.log(err); });
   }
   render() {
