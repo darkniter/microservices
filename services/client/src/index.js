@@ -10,10 +10,10 @@ class App extends Component {
 
   constructor() {
     super();
-    // new
     this.state = {
       users: []
     };
+    this.addUser = this.addUser.bind(this);  // new
   };
   // new
 
@@ -38,7 +38,7 @@ class App extends Component {
               <br/>
               <h1 className="title is-1">All Users</h1>
               <hr/><br/>
-              <AddUser/>  {/* new */}
+              <AddUser addUser={this.addUser}/>  {/* new */}
               <br/><br/>  {/* new */}
               <UsersList users={this.state.users}/>
             </div>
@@ -47,6 +47,11 @@ class App extends Component {
       </section>
     )
   }
+
+  addUser(event) {
+    event.preventDefault();
+    console.log('sanity check!');
+  };
 };
 
 
