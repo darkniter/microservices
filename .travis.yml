@@ -17,7 +17,7 @@ before_script:
   - docker-compose up -d --build
 
 script:
-  - docker-compose exec users python manage.py test
+  - docker-compose exec users sh -c "while ! nc -z users-db 5432; do sleep 1; done; python manage.py test"
   - docker-compose exec users flake8 project
 
 after_script:
