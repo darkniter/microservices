@@ -4,14 +4,17 @@ import axios from 'axios';
 
 // new
 class App extends Component {
+  // new
   constructor() {
     super();
-    this.getUsers();  // new
-  }
-
+  };
+  // new
+  componentDidMount() {
+    this.getUsers();
+  };
   getUsers() {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
-    .then((res) => { console.log(res.data.data); })  // new
+    .then((res) => { console.log(res.data.data); })
     .catch((err) => { console.log(err); });
   }
   render() {
