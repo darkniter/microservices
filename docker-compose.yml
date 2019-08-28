@@ -14,7 +14,8 @@ services:
       - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_dev
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
     depends_on:  # new
-      - users-db
+      - users-db:
+          condition: service_healthy
 
   users-db:  # new
     build:
@@ -25,6 +26,12 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   nginx:
     build:
       context: ./services/nginx
