@@ -65,14 +65,15 @@ class App extends Component {
 
   addUser(event) {
     event.preventDefault();
-    // new
     const data = {
       username: this.state.username,
       email: this.state.email
     };
-    // new
     axios.post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
-    .then((res) => { console.log(res); })
+    .then((res) => {
+      this.getUsers();  // new
+      this.setState({ username: '', email: '' });  // new
+    })
     .catch((err) => { console.log(err); });
   };
 };
