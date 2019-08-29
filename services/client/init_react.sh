@@ -1,6 +1,6 @@
 #!/bin/sh
 
-npm install create-react-app@2.1.8 --global
+sudo npm install create-react-app@2.1.8 --global
 
 create-react-app .
 
